@@ -129,5 +129,6 @@ require('es6-promise').polyfill();
 ## 遇到的问题
 
 vue 模块化引用外部js的时候 因为vue会默认开启es6的严格模式，所以外部js不能随便使用this 因为严格模式下，this的值为undefined，所以"!this"为true。
-
+```
 this.$router.go(0) 可以刷新页面 vue-router
+```
