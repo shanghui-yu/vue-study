@@ -108,3 +108,24 @@ watch: {
     }
   }
 ```
+# 兼容性处理
+
+项目中发现，在安卓4.3及以下的手机不支持axios的使用，主要就是无法使用promise。加上以下polyfill就可以了。
+
+项目中安装es6-promise
+
+
+```
+cnpm install es6-promise --save-dev
+```
+
+
+在axios.min.js开头和调用axios的时候加上
+
+
+```
+require('es6-promise').polyfill();
+```
+## 遇到的问题
+
+vue 模块化引用外部js的时候 因为vue会默认开启es6的严格模式，所以外部js不能随便使用this 因为严格模式下，this的值为undefined，所以"!this"为true。
